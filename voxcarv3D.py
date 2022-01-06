@@ -42,14 +42,13 @@ if __name__ == "__main__":
     print(calib.shape)
     print(X.shape)
     print(occupancy.shape)
+
     # Compute grid projection in images
-    # TO BE COMPLETED
 
     for x in range(X.shape[0]):
         for y in range(X.shape[1]):
             for i in range(X.shape[2]):
 
-                X.reshape(1, X.shape[0]*)
                 result = np.dot(calib[0].reshape(3, 4), np.array([X[x][y][i], Y[x][y][i], Z[x][y][i], 1]))
                 u = int(result[0] / result[2])
                 v = int(result[1] / result[2])
@@ -59,14 +58,6 @@ if __name__ == "__main__":
                 elif img[u][v] == 0:
                     # Update grid occupancy
                     occupancy[x][y][i] = 0
-
-    # print(occupancy.shape)
-    # for i in occupancy:
-    #     print(i.shape)
-    #     break
-
-    # Update grid occupancy
-    # TO BE COMPLETED
 
     # Voxel visualization
     verts, faces, normals, values = measure.marching_cubes(occupancy, 0.25)  # Marching cubes
