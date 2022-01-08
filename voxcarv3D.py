@@ -54,7 +54,8 @@ def compute_grid_non_vec(occupancy):
                     # Update grid occupancy
                     occupancy[x][y][i] = 0
 
-    return occupancy
+    # Voxel visualization
+    voxel_visualization(occupancy, i)
 
 
 def compute_grid_vec(occupancy):
@@ -63,8 +64,8 @@ def compute_grid_vec(occupancy):
     :return: Modified voxel occupancy
     """
     # For each image
-    for i in range(1):
-        myFile = "./img/image{0}.pgm".format(i)  # read the input silhouettes
+    for i in range(12):
+        myFile = f"./img/image{i}.pgm"  # read the input silhouettes
         print(myFile)
         img = mpimg.imread(myFile)
         if img.dtype == np.float32:  # if not integer
@@ -83,10 +84,23 @@ def compute_grid_vec(occupancy):
         # Update grid occupemcy
         img[img > 0] = 1
         occupancy = occupancy * img[v, u]
-        return occupancy
+
+        # Voxel visualization
+        voxel_visualization(occupancy, i)
 
 
-####### MAIN #########
+def voxel_visualization(occupancy, file_num):
+    """
+    Voxel visualization: generate and save the visualizations
+    :return:
+    """
+
+    verts, faces, normals, values = measure.marching_cubes(occupancy, 0.25)  # Marching cubes
+    surf_mesh = trimesh.Trimesh(verts, faces, validate=True)  # Export in a standard file format
+    surf_mesh.export(f"img/alvoxels{file_num}.off")
+    print(f"Saved: alvoxels{file_num}.off")
+
+
 if __name__ == "__main__":
     # print(img.shape)
     # print(calib.shape)
@@ -94,10 +108,6 @@ if __name__ == "__main__":
     # print(occupancy.shape)
 
     # Compute grid projection in images
-    # occupancy = compute_grid_non_vec(occupancy)
-    occupancy = compute_grid_vec(occupancy)
+    # compute_grid_non_vec(occupancy)
+    compute_grid_vec(occupancy)
 
-    # Voxel visualization
-    verts, faces, normals, values = measure.marching_cubes(occupancy, 0.25)  # Marching cubes
-    surf_mesh = trimesh.Trimesh(verts, faces, validate=True)  # Export in a standard file format
-    surf_mesh.export('alvoxels.off')
