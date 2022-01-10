@@ -62,7 +62,12 @@
             ...
         ```
 6. What does the function `binary_acc` evaluate ? Is it used for the training ?
+   * `binary_acc` does the Intersection Over Union (IOU) evaluation, which is fancy way of calculating the accuracy
+   * Basically all the predicted values are compared with the test values, summed up (for those that are equal) and then divided by the total number of values of `y_test`
+   * Before comparing, all the values are rounded to their nearest integer values.
 7. How is the MLP used to generate a result to be visualized ?
+   * MLP is used to obtain outputs from the given inputs `data_in `, which is essentially occupancy values only.
+   * They're reshaped to dimension `res * res * res/2` to form a 3D grid-like which is finally used by the marching cube algorithm to transform the occupancy grid into a 3D mesh.
 8. What is the memory size of the MLP ? how does it compare with: (i) A voxel occupancy grid; (ii) The original image set plus the calibration ?
 
 
