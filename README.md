@@ -67,8 +67,18 @@
    * Before comparing, all the values are rounded to their nearest integer values.
 7. How is the MLP used to generate a result to be visualized ?
    * MLP is used to obtain outputs from the given inputs `data_in `, which is essentially occupancy values only.
-   * They're reshaped to dimension `res * res * res/2` to form a 3D grid-like which is finally used by the marching cube algorithm to transform the occupancy grid into a 3D mesh.
+   * They're reshaped to dimension `(res * res * res/2)` to form a 3D grid-like which is finally used by the marching cube algorithm to transform the occupancy grid into a 3D mesh.
 8. What is the memory size of the MLP ? how does it compare with: (i) A voxel occupancy grid; (ii) The original image set plus the calibration ?
+   * If we choose a resolution of 100:
+     * `data_in` size: `100*100*100/2, 3`
+     * => Input to PyTorch MLP network: `(1, 500000, 3)`
+   * From `torchsummary.summary()`:
+     * Input size (MB): 5.72
+     * Forward/backward pass size (MB): 2063.75
+     * Params size (MB): 0.06
+     * **Estimated Total Size (MB): 2069.54**
+   * Voxel Occupancy grid:
+     * TODO
 
 
 ### 2.2 Program Editing
