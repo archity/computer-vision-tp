@@ -22,7 +22,7 @@ calib = np.array([[-230.924, 0, -33.6163, 300, -78.8596, -178.763, -127.597, 300
                   [127.597, -78.8596, -178.763, 300, 33.6163, -230.924, 0, 300, 0.85065, -0.525731, 0, 2]])
 
 # Build 3D grids
-resolution = 300  # 3D Grids are of size: resolution x resolution x resolution/2
+resolution = 100  # 3D Grids are of size: resolution x resolution x resolution/2
 step = 2 / resolution
 X, Y, Z = np.mgrid[-1:1:step, -1:1:step, -0.5:0.5:step]  # Voxel coordinates
 occupancy = np.ndarray(shape=(resolution, resolution, int(resolution / 2)), dtype=int)  # Voxel occupancy
@@ -87,6 +87,8 @@ def compute_grid_vec(occupancy):
 
         # Voxel visualization
         voxel_visualization(occupancy, i)
+
+    return occupancy
 
 
 def voxel_visualization(occupancy, file_num):

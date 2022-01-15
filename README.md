@@ -83,4 +83,147 @@
 
 ### 2.2 Program Editing
 
+#### 1.
+
+In the main function, we make use of the function defined in `voxcarv3d.py`:
+
+```py
+# Generate X,Y,Z and occupancy
+occupancy = compute_grid_vec(occupancy)
+```
+
+* `resolution` set to 100
+
+Training Log:
+
+```
+Device:  cpu
+Pos. Weight:  tensor(119.6855)
+Starting epoch 1/10
+Loss after mini-batch   500: 2.401
+Loss after mini-batch  1000: 2.318
+Loss after mini-batch  1500: 2.038
+Loss after mini-batch  2000: 1.825
+Loss after mini-batch  2500: 1.684
+Loss after mini-batch  3000: 1.588
+Loss after mini-batch  3500: 1.515
+Loss after mini-batch  4000: 1.459
+Loss after mini-batch  4500: 1.417
+Loss after mini-batch  5000: 1.382
+Binary accuracy:  tensor(98.)
+Starting epoch 2/10
+Loss after mini-batch   500: 1.048
+Loss after mini-batch  1000: 1.060
+Loss after mini-batch  1500: 1.063
+Loss after mini-batch  2000: 1.059
+Loss after mini-batch  2500: 1.057
+Loss after mini-batch  3000: 1.063
+Loss after mini-batch  3500: 1.063
+Loss after mini-batch  4000: 1.064
+Loss after mini-batch  4500: 1.063
+Loss after mini-batch  5000: 1.064
+Binary accuracy:  tensor(99.)
+Starting epoch 3/10
+Loss after mini-batch   500: 1.073
+Loss after mini-batch  1000: 1.062
+Loss after mini-batch  1500: 1.062
+Loss after mini-batch  2000: 1.065
+Loss after mini-batch  2500: 1.063
+Loss after mini-batch  3000: 1.063
+Loss after mini-batch  3500: 1.065
+Loss after mini-batch  4000: 1.061
+Loss after mini-batch  4500: 1.060
+Loss after mini-batch  5000: 1.058
+Binary accuracy:  tensor(97.)
+Starting epoch 4/10
+Loss after mini-batch   500: 1.054
+Loss after mini-batch  1000: 1.052
+Loss after mini-batch  1500: 1.060
+Loss after mini-batch  2000: 1.057
+Loss after mini-batch  2500: 1.056
+Loss after mini-batch  3000: 1.058
+Loss after mini-batch  3500: 1.058
+Loss after mini-batch  4000: 1.057
+Loss after mini-batch  4500: 1.056
+Loss after mini-batch  5000: 1.055
+Binary accuracy:  tensor(99.)
+Starting epoch 5/10
+Loss after mini-batch   500: 1.059
+Loss after mini-batch  1000: 1.052
+Loss after mini-batch  1500: 1.048
+Loss after mini-batch  2000: 1.055
+Loss after mini-batch  2500: 1.057
+Loss after mini-batch  3000: 1.056
+Loss after mini-batch  3500: 1.054
+Loss after mini-batch  4000: 1.054
+Loss after mini-batch  4500: 1.053
+Loss after mini-batch  5000: 1.052
+Binary accuracy:  tensor(99.)
+Starting epoch 6/10
+Loss after mini-batch   500: 1.039
+Loss after mini-batch  1000: 1.037
+Loss after mini-batch  1500: 1.037
+Loss after mini-batch  2000: 1.044
+Loss after mini-batch  2500: 1.053
+Loss after mini-batch  3000: 1.052
+Loss after mini-batch  3500: 1.051
+Loss after mini-batch  4000: 1.050
+Loss after mini-batch  4500: 1.050
+Loss after mini-batch  5000: 1.049
+Binary accuracy:  tensor(99.)
+Starting epoch 7/10
+Loss after mini-batch   500: 1.047
+Loss after mini-batch  1000: 1.046
+Loss after mini-batch  1500: 1.044
+Loss after mini-batch  2000: 1.044
+Loss after mini-batch  2500: 1.042
+Loss after mini-batch  3000: 1.050
+Loss after mini-batch  3500: 1.051
+Loss after mini-batch  4000: 1.050
+Loss after mini-batch  4500: 1.051
+Loss after mini-batch  5000: 1.050
+Binary accuracy:  tensor(99.)
+Starting epoch 8/10
+Loss after mini-batch   500: 1.050
+Loss after mini-batch  1000: 1.052
+Loss after mini-batch  1500: 1.049
+Loss after mini-batch  2000: 1.045
+Loss after mini-batch  2500: 1.050
+Loss after mini-batch  3000: 1.048
+Loss after mini-batch  3500: 1.047
+Loss after mini-batch  4000: 1.047
+Loss after mini-batch  4500: 1.047
+Loss after mini-batch  5000: 1.046
+Binary accuracy:  tensor(99.)
+Starting epoch 9/10
+Loss after mini-batch   500: 1.044
+Loss after mini-batch  1000: 1.042
+Loss after mini-batch  1500: 1.041
+Loss after mini-batch  2000: 1.040
+Loss after mini-batch  2500: 1.042
+Loss after mini-batch  3000: 1.044
+Loss after mini-batch  3500: 1.043
+Loss after mini-batch  4000: 1.042
+Loss after mini-batch  4500: 1.041
+Loss after mini-batch  5000: 1.043
+Binary accuracy:  tensor(99.)
+Starting epoch 10/10
+Loss after mini-batch   500: 1.042
+Loss after mini-batch  1000: 1.045
+Loss after mini-batch  1500: 1.044
+Loss after mini-batch  2000: 1.042
+Loss after mini-batch  2500: 1.041
+Loss after mini-batch  3000: 1.041
+Loss after mini-batch  3500: 1.040
+Loss after mini-batch  4000: 1.042
+Loss after mini-batch  4500: 1.043
+Loss after mini-batch  5000: 1.043
+Binary accuracy:  tensor(99.)
+MLP trained.
+Size of MLP:  56
+
+Process finished with exit code 0
+```
+
+#### 2.
 TODO
